@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true" failOnRisky="true" failOnWarning="true">
+<testsuites><testsuite name="Unit"><directory>tests/Unit</directory></testsuite><testsuite name="Feature"><directory>tests/Feature</directory></testsuite></testsuites>
+<source><include><directory>app</directory></include></source>
+<php>
+<env name="APP_ENV" value="testing" force="true"/>
+<env name="APP_KEY" value="base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" force="true"/>
+<env name="JWT_SECRET" value="nabaku-test-signing-secret-at-least-32-characters" force="true"/>
+<env name="BCRYPT_ROUNDS" value="4"/>
+<env name="CACHE_STORE" value="array" force="true"/>
+<env name="MONGODB_DATABASE" value="nabaku_test" force="true"/>
+<env name="MONGODB_URI" value="mongodb://127.0.0.1:27028/?replicaSet=nabaku-test"/>
+<env name="MAIL_MAILER" value="array" force="true"/>
+<env name="SESSION_DRIVER" value="array" force="true"/>
+<env name="LOG_CHANNEL" value="null" force="true"/>
+</php>
+</phpunit>

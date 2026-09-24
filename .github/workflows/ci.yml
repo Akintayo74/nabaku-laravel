@@ -1,0 +1,26 @@
+name: API checks
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mongodb-2.4.0, bcmath, mbstring, intl, zip
+          tools: composer:v2
+          coverage: none
+      - run: composer install --prefer-dist --no-interaction
+      - name: Start isolated MongoDB replica set
+        run: |
+          docker run -d --name nabaku-test-mongo -p 27028:27028 mongo:8.0 --replSet nabaku-test --bind_ip_all --port 27028
+          for attempt in $(seq 1 60); do
+            if docker exec nabaku-test-mongo mongosh --port 27028 --quiet --eval 'db.adminCommand({ping:1}).ok'; then break; fi
+            sleep 1
+          done
+          docker exec nabaku-test-mongo mongosh --port 27028 --quiet --eval 'rs.initiate({_id:"nabaku-test",members:[{_id:0,host:"127.0.0.1:27028"}]}); while (!db.hello().isWritablePrimary) { sleep(500); }'
+      - run: composer check-platform-reqs
+      - run: vendor/bin/pint --test
+      - run: vendor/bin/phpunit --testdox
+      - run: composer audit

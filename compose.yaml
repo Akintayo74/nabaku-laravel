@@ -1,0 +1,50 @@
+# Local development topology only. Production must use authenticated MongoDB/Atlas and TLS.
+services:
+  mongodb:
+    image: mongo:8.0
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    volumes: ["mongodb-data:/data/db"]
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ping:1}).ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  mongo-init:
+    image: mongo:8.0
+    depends_on:
+      mongodb: {condition: service_healthy}
+    entrypoint: ["mongosh", "--host", "mongodb", "--quiet", "--eval"]
+    command: ["try { rs.status(); } catch (e) { rs.initiate({_id:'rs0',members:[{_id:0,host:'mongodb:27017'}]}); } while (!db.hello().isWritablePrimary) { sleep(500); }"]
+  app:
+    build: .
+    env_file: .env
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/?replicaSet=rs0
+      MONGODB_DATABASE: nabaku_local
+      CACHE_STORE: mongodb
+      LOG_CHANNEL: stderr
+    depends_on:
+      mongo-init: {condition: service_completed_successfully}
+    volumes: ["app-storage:/var/www/html/storage"]
+  web:
+    image: nginx:1.28-alpine
+    ports: ["127.0.0.1:8000:80"]
+    volumes:
+      - ./public:/var/www/html/public:ro
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on: [app]
+  scheduler:
+    build: .
+    command: ["php", "artisan", "schedule:work"]
+    env_file: .env
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/?replicaSet=rs0
+      MONGODB_DATABASE: nabaku_local
+      CACHE_STORE: mongodb
+      LOG_CHANNEL: stderr
+    depends_on:
+      mongo-init: {condition: service_completed_successfully}
+    volumes: ["app-storage:/var/www/html/storage"]
+volumes:
+  mongodb-data:
+  app-storage:

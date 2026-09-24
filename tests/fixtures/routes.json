@@ -1,0 +1,290 @@
+[
+  {
+    "method": "GET",
+    "url": "/"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/authentication/register"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/authentication/login"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/authentication/password/forgot"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/authentication/password/reset"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/authentication/set-profile"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/authentication/states"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/authentication/activate/:token"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/authentication/activate/manager/:token"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/authentication/activate/user/:id"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/authentication/get-profile"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/authentication/resend-activation"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/bank/list"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/bank/"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/bank/verify"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/bank/update/bank-details"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/bank/update/:bankId"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/bank/create"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/file/upload"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/wallet/balance/admin"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/wallet/:id"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/wallet/"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/organization/list"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/organization/"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/organization/dashboard"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/organization/overview"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/organization/public/:id"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/organization/update/avatar"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/organization/update/password"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/organization/update/organization-password"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/organization/block/:id"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/organization/update"
+  },
+  {
+    "method": "DELETE",
+    "url": "/api/v1/organization/delete/:id"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/organization/:id"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/project/create"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/project/all"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/project/random"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/project/admin/all"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/project/update/:projectId"
+  },
+  {
+    "method": "DELETE",
+    "url": "/api/v1/project/delete/:projectId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/project/organization/:organizationId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/project/:projectId"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/donation/make-donation"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/donation/webhook"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/donation/"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/donation/project/:projectId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/donation/:donationId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/donation/graph/year"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/donation/make-donation"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/activity/add"
+  },
+  {
+    "method": "DELETE",
+    "url": "/api/v1/activity/delete/:activityId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/activity/all"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/activity/public"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/activity/public/:organizationId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/activity/:activityId"
+  },
+  {
+    "method": "PUT",
+    "url": "/api/v1/activity/:activityId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/global/admin/dashboard"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/global/search"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/user/add"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/user/delete"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/withdraw/"
+  },
+  {
+    "method": "PATCH",
+    "url": "/api/v1/withdraw/admin/update/:requestId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdraw/single/:requestId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdraw/admin/all"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdraw/admin/requests"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdraw/all"
+  },
+  {
+    "method": "POST",
+    "url": "/api/v1/withdrawal/"
+  },
+  {
+    "method": "PATCH",
+    "url": "/api/v1/withdrawal/admin/update/:requestId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdrawal/single/:requestId"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdrawal/admin/all"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdrawal/admin/requests"
+  },
+  {
+    "method": "GET",
+    "url": "/api/v1/withdrawal/all"
+  }
+]

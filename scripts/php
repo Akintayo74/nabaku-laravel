@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+nabaku_root="$(cd "$(dirname "$0")/.." && pwd)"
+if php -r 'exit(extension_loaded("mongodb") ? 0 : 1);' 2>/dev/null; then
+  exec php "$@"
+fi
+if [[ -f "$nabaku_root/.runtime/php-version" && -f "$nabaku_root/.runtime/conf.d/mongodb.ini" ]]; then
+  nabaku_version="$(php -r 'echo PHP_MAJOR_VERSION,".",PHP_MINOR_VERSION;')"
+  if [[ $(cat "$nabaku_root/.runtime/php-version") == "$nabaku_version" ]]; then
+    export PHP_INI_SCAN_DIR="${PHP_INI_SCAN_DIR:-}:$nabaku_root/.runtime/conf.d"
+    exec php "$@"
+  fi
+fi
+echo 'MongoDB PHP extension is missing. Install ext-mongodb >=2.4 or use the Docker runtime.' >&2
+exit 1

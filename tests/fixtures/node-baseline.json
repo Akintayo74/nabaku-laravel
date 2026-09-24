@@ -1,0 +1,339 @@
+[
+    {
+        "method": "GET",
+        "url": "/",
+        "status": 200,
+        "body": {
+            "message": "NABAKU api is running."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/authentication/states",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "states fetched",
+            "data": [
+                "Abia",
+                "Adamawa",
+                "Akwa Ibom",
+                "Anambra",
+                "Bauchi",
+                "Benue",
+                "Borno",
+                "Bayelsa",
+                "Cross River",
+                "Delta",
+                "Ebonyi",
+                "Edo",
+                "Ekiti",
+                "Enugu",
+                "Federal Capital Territory",
+                "Gombe",
+                "Imo",
+                "Jigawa",
+                "Kebbi",
+                "Kaduna",
+                "Kano",
+                "Kogi",
+                "Katsina",
+                "Kwara",
+                "Lagos",
+                "Nassarawa",
+                "Niger",
+                "Ogun",
+                "Ondo",
+                "Osun",
+                "Oyo",
+                "Plateau",
+                "Rivers",
+                "Sokoto",
+                "Taraba",
+                "Yobe",
+                "Zamfara"
+            ]
+        }
+    },
+    {
+        "method": "POST",
+        "url": "/api/v1/authentication/login",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "login successful",
+            "data": {
+                "__v": 0,
+                "id": "507f1f77bcf86cd799439012",
+                "description": "",
+                "type": "faith-based",
+                "emails": [],
+                "blocked": false,
+                "isActive": true,
+                "isAdmin": false,
+                "profile_step": 1,
+                "_id": "507f1f77bcf86cd799439012",
+                "name": "Baseline Organization",
+                "email": "baseline@example.test",
+                "phone": "08099999111",
+                "createdAt": "2026-09-23T20:03:00.836Z",
+                "updatedAt": "2026-09-23T20:03:00.836Z"
+            },
+            "authorization": {
+                "token": "<dynamic-token>",
+                "expiresIn": 2592000
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/authentication/get-profile",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "Organization fetched successfully",
+            "data": {
+                "__v": 0,
+                "id": "507f1f77bcf86cd799439012",
+                "description": "",
+                "type": "faith-based",
+                "emails": [],
+                "blocked": false,
+                "isActive": true,
+                "isAdmin": false,
+                "profile_step": 1,
+                "_id": "507f1f77bcf86cd799439012",
+                "name": "Baseline Organization",
+                "email": "baseline@example.test",
+                "phone": "08099999111",
+                "createdAt": "2026-09-23T20:03:00.836Z",
+                "updatedAt": "2026-09-23T20:03:00.836Z"
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/project/random",
+        "status": 200,
+        "body": {
+            "success": true,
+            "pagination": {
+                "prevPage": null,
+                "currentPage": 1,
+                "nextPage": null,
+                "pageTotal": 1,
+                "pageSize": 1,
+                "total": 1
+            },
+            "data": [
+                {
+                    "donated_amount": 0,
+                    "is_deleted": false,
+                    "is_suspended": false,
+                    "closed": false,
+                    "_id": "507f1f77bcf86cd799439013",
+                    "organization": "507f1f77bcf86cd799439012",
+                    "title": "Baseline Project",
+                    "description": "Fixture project",
+                    "target_amount": 10000,
+                    "media": [],
+                    "createdAt": "2026-09-23T20:03:01.046Z",
+                    "updatedAt": "2026-09-23T20:03:01.046Z"
+                }
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/project/507f1f77bcf86cd799439013",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "Project fetched successfully",
+            "data": {
+                "donated_amount": 0,
+                "is_deleted": false,
+                "is_suspended": false,
+                "closed": false,
+                "_id": "507f1f77bcf86cd799439013",
+                "organization": "507f1f77bcf86cd799439012",
+                "title": "Baseline Project",
+                "description": "Fixture project",
+                "target_amount": 10000,
+                "media": [],
+                "createdAt": "2026-09-23T20:03:01.046Z",
+                "updatedAt": "2026-09-23T20:03:01.046Z"
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/activity/public",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "Activities fetched successfully",
+            "pagination": {
+                "prevPage": null,
+                "currentPage": 1,
+                "nextPage": null,
+                "pageTotal": 0,
+                "pageSize": 0,
+                "total": 0
+            },
+            "data": [
+                {
+                    "_id": "507f1f77bcf86cd799439014",
+                    "organization": "507f1f77bcf86cd799439012",
+                    "name": "Baseline Meeting",
+                    "start": "2026-10-01",
+                    "end": "2026-10-02",
+                    "createdAt": "2026-09-23T20:03:01.119Z",
+                    "updatedAt": "2026-09-23T20:03:01.119Z"
+                }
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/wallet",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "Wallet fetched",
+            "data": {
+                "balance": 0,
+                "ledger_balance": 0,
+                "_id": "6ab4307410c61e9a227bb2cc",
+                "organization": "507f1f77bcf86cd799439012",
+                "createdAt": "2026-09-23T20:03:00.991Z",
+                "updatedAt": "2026-09-23T20:03:00.991Z",
+                "__v": 0
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/donation",
+        "status": 200,
+        "body": {
+            "success": true,
+            "pagination": {
+                "prevPage": null,
+                "currentPage": 1,
+                "nextPage": null,
+                "pageTotal": 0,
+                "pageSize": 0,
+                "total": 0
+            },
+            "data": []
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/withdraw/all",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "Withdrawal requests fetched successfully",
+            "pagination": {
+                "prevPage": null,
+                "currentPage": 1,
+                "nextPage": null,
+                "pageTotal": 0,
+                "pageSize": 0,
+                "total": 0
+            },
+            "data": []
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/organization/overview",
+        "status": 200,
+        "body": {
+            "success": true,
+            "message": "Overview data fetched successfully",
+            "data": {
+                "activity": {
+                    "amount": 0,
+                    "percentageChange": 0,
+                    "period": "Last 7 days"
+                },
+                "income": {
+                    "amount": 0,
+                    "numberOfDonors": 0,
+                    "percentageChange": 0
+                },
+                "spending": {
+                    "amount": 0,
+                    "numberOfWithdrawals": 0,
+                    "percentageChange": 0
+                }
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/global/search",
+        "status": 200,
+        "body": {
+            "organizations": {
+                "data": [
+                    {
+                        "__v": 0,
+                        "id": "507f1f77bcf86cd799439012",
+                        "description": "",
+                        "type": "faith-based",
+                        "emails": [],
+                        "blocked": false,
+                        "isActive": true,
+                        "isAdmin": false,
+                        "profile_step": 1,
+                        "_id": "507f1f77bcf86cd799439012",
+                        "name": "Baseline Organization",
+                        "email": "baseline@example.test",
+                        "phone": "08099999111",
+                        "createdAt": "2026-09-23T20:03:00.836Z",
+                        "updatedAt": "2026-09-23T20:03:00.836Z"
+                    }
+                ],
+                "total": 1,
+                "page": 1,
+                "pageSize": 20,
+                "totalPages": 1
+            },
+            "projects": {
+                "data": [
+                    {
+                        "donated_amount": 0,
+                        "is_deleted": false,
+                        "is_suspended": false,
+                        "closed": false,
+                        "_id": "507f1f77bcf86cd799439013",
+                        "organization": "507f1f77bcf86cd799439012",
+                        "title": "Baseline Project",
+                        "description": "Fixture project",
+                        "target_amount": 10000,
+                        "media": [],
+                        "createdAt": "2026-09-23T20:03:01.046Z",
+                        "updatedAt": "2026-09-23T20:03:01.046Z"
+                    }
+                ],
+                "total": 1,
+                "page": 1,
+                "pageSize": 20,
+                "totalPages": 1
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/v1/project/not-an-id",
+        "status": 404,
+        "body": {
+            "success": false,
+            "message": "Resource Not Found"
+        }
+    }
+]
