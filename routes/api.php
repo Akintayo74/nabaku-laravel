@@ -109,5 +109,5 @@ Route::middleware('jwt')->group(function () {
         });
     }
 });
-Route::get('global/admin/dashboard',[ReportController::class, 'admin'])->middleware(['jwt', 'admin']);
-Route::get('global/search',[ReportController::class, 'search']);
+Route::get('global/admin/dashboard', [ReportController::class, 'admin'])->middleware(['jwt', 'admin']);
+Route::get('global/search', [ReportController::class, 'search']);

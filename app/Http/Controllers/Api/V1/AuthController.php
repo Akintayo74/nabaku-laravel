@@ -217,11 +217,11 @@ class AuthController extends Controller
             $org->save();
         });
 
-        return Api::ok(null,'Organization updated successfully');
+        return Api::ok(null, 'Organization updated successfully');
     }
 
     public function states()
     {
-        return Api::ok(json_decode(file_get_contents(resource_path('data/states.json')),true),'states fetched');
+        return Api::ok(json_decode(file_get_contents(resource_path('data/states.json')), true), 'states fetched');
     }
 }
